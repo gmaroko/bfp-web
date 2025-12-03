@@ -22,3 +22,13 @@
   --nav-dropdown-color: #363f40;
   --nav-dropdown-hover-color: #099aa7;
 }
+
+
+.partner-card i,
+.stat-card i,
+.impact-method-card i,
+.partner-type-card i,
+.offer-card i {
+  font-size: 35px;
+  color: var(--accent-color);
+}
