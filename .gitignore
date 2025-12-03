@@ -141,3 +141,5 @@ vite.config.ts.timestamp-*
 .vite/
 starter-page.html
 assets/img/gallery
+
+theme-doc.css

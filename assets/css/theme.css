@@ -1,0 +1,24 @@
+/* theme.css — overrides all variables from style.css */
+
+:root {
+  /* Fonts */
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Ubuntu", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  /* Global Colors */
+  --background-color: #F7F7F8;
+  --default-color: #000000;
+  --heading-color: #3A3A3C;
+  --accent-color: #F47B20;
+  --surface-color: #ffffff;
+  --contrast-color: #FFFFFF;
+
+  /* Nav Menu Colors */
+  --nav-color: #000000;
+  --nav-hover-color: #FF8F3A;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #363f40;
+  --nav-dropdown-hover-color: #099aa7;
+}
