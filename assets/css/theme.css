@@ -2,7 +2,7 @@
 
 :root {
   /* Fonts */
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Ubuntu", sans-serif;
   --nav-font: "Poppins", sans-serif;
 
@@ -21,4 +21,28 @@
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #363f40;
   --nav-dropdown-hover-color: #099aa7;
+}
+
+
+.partner-card i,
+.stat-card i,
+.impact-method-card i,
+.partner-type-card i,
+.offer-card i {
+  font-size: 35px;
+  color: var(--accent-color);
+}
+
+
+body {
+  font-family: var(--default-font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--default-font);
+  font-weight: 600;
+  letter-spacing: -0.2px;
 }
