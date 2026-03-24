@@ -1,32 +1,44 @@
 <?php
-  $receiving_email_address = 'info@barefootpower.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// Receiving email
+$receiving_email_address = 'info@barefootpower.com';
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+$php_email_form = '../assets/vendor/php-email-form/php-email-form.php';
+if (file_exists($php_email_form)) {
+  include($php_email_form);
+} else {
+  die('Unable to load the "PHP Email Form" Library!');
+}
 
-  $contact->smtp = array(
-    'host' => 'barefoot.com',
-    'username' => NULL,
-    'password' => NULL,
-    'port' => '587'
-  );
+$contact = new PHP_Email_Form;
+$contact->ajax = true;
+
+$contact->to = $receiving_email_address;
+$contact->from_name = isset($_POST['name']) ? $_POST['name'] : 'Website Visitor';
+$contact->from_email = isset($_POST['email']) ? $_POST['email'] : 'no-reply@barefootpower.com';
+
+// Use inquiry type as subject
+$contact->subject = isset($_POST['priority']) 
+  ? 'New Inquiry: ' . ucfirst($_POST['priority'])
+  : 'Website Contact Form';
 
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  isset($_POST['phone']) && $contact->add_message($_POST['phone'], 'Phone');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+$contact->smtp = array(
+  'host' => 'mail.barefootpower.com',
+  'username' => 'info@barefootpower.com',
+  'port' => '587'
+);
 
-  echo $contact->send();
+// Email content
+$contact->add_message($_POST['name'], 'Name');
+$contact->add_message($_POST['email'], 'Email');
+
+if (!empty($_POST['priority'])) {
+  $contact->add_message($_POST['priority'], 'Inquiry Type');
+}
+
+$contact->add_message($_POST['message'], 'Message', 10);
+
+// Send email
+echo $contact->send();
 ?>
